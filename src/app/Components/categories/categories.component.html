@@ -1,0 +1,14 @@
+<div class="container py-5">
+   
+    <div class="row" >
+   
+        <div class="col-md-3"  *ngFor="let slide of categories"  [@zoomInOutAnimation] >
+          <img [src]="slide.image" class="card-img-top" alt="..." height="250">
+          
+            <h3 class="text-center  ">{{slide.name}}</h3>
+
+            
+        
+        </div>
+  </div>
+    </div>

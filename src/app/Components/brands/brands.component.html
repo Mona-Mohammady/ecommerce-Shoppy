@@ -1,0 +1,10 @@
+<div class="container py-5">
+    
+<div class="row">
+
+    <div class="col-3" *ngFor="let item of Brands" [@zoomInOutAnimation]>
+
+        <img [src]="item.image" class="w-100">
+    </div>
+</div>
+</div>

@@ -1,0 +1,68 @@
+
+<nav class="navbar navbar-expand-sm p-3 fixed-top bg-bak" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" routerLink="/home">
+            <i class="fa-solid fa-shopping-cart  text-main fs-3"></i>  <span class="fw-bold fs-2"> Shoppy</span>
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul *ngIf="isLogin" class="navbar-nav me-auto mt-2 mt-lg-0 fw-bold fs-6 ">
+                
+                <li class="nav-item">
+                    <a class="nav-link text-capitalize" routerLink="/home"  routerLinkActive="active bg-ftr rounded-2">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-capitalize" routerLink="/brands" routerLinkActive="active bg-ftr rounded-2">brands</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-capitalize" routerLink="/cart"  routerLinkActive="active bg-ftr rounded-2">cart</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-capitalize" routerLink="/categories"  routerLinkActive="active bg-ftr rounded-2">categories</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-capitalize" routerLink="/products"  routerLinkActive="active bg-ftr rounded-2">products</a>
+                </li>
+                
+            </ul>
+            
+
+
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 fw-bold fs-6" >
+                <li class="nav-item d-flex align-items-center" *ngIf="isLogin">
+                   
+                    <a routerLink="/wishlist">
+                        <i class="fa-regular mx-2 fa-heart text-main fs-5"></i>
+                    </a>
+
+                    <a routerLink="/cart">
+                        <button type="button" class="btn position-relative">
+                           <i class="fa-solid fa-shopping-cart  text-main fs-5" ></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                              {{numberOfItem}}
+                            </span>
+                          </button>
+                    </a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link text-capitalize" routerLink="/login"  routerLinkActive="active ">login</a>
+                </li>
+
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link text-capitalize" routerLink="/register"  routerLinkActive="active">register</a>
+                </li>
+
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link text-capitalize cursor-pointer" (click)="logout()">logout</a>
+                </li>
+            </ul>
+        </div>
+  </div>
+</nav>

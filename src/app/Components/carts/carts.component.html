@@ -1,0 +1,39 @@
+<div class="container bg-main-light p-4 my-3">
+
+    <h3 class="fw-bold">Shipping Cart</h3>
+    <h6 class="text-main mt-2">Total Price : {{cartData?.totalCartPrice}} EGP </h6>
+
+    <div class="row my-2" *ngFor="let item of cartData?.products">
+        <div class="col-md-1">
+            <img [src]="item.product?.imageCover" alt="" class="w-100">
+        </div>
+
+        <div class="col-md-11 d-flex justify-content-between align-items-center mb-1">
+            <div>
+
+                <h6>{{item.product?.title}}</h6>
+                <h6>Price : {{item?.price}} EGP</h6>
+                <button class="btn p-0 m-0" (click)="deleteCartItem(item.product?._id)">
+                    <i class="fa-regular fa-trash-can text-danger"></i>
+                    Remove
+                </button>
+            </div>
+
+            <div>
+                <button  (click)="updateCountCart(item.product?._id,item?.count+1)" class="btn btn-outline-info"> + </button>
+                <span class="mx-2"> {{item?.count}} </span>
+                <button (click)="updateCountCart(item.product?._id,item?.count-1)" class="btn btn-outline-info"> - </button>
+            </div>
+
+        </div>
+        <hr>
+    </div>
+    
+
+    <button class="btn bg-main text-white my-3" >
+        <a [routerLink]="['/checkout',cartData?._id]">Online Payment</a></button>
+</div> 
+
+
+
+   

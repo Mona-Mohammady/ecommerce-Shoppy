@@ -1,0 +1,84 @@
+<section class="d-flex justify-content-center align-items-center ">
+    <div class="row g-0 shadow rounded overflow-hidden w-100 align-items-center ">
+        <div class="col-md-8 d-none d-md-block ">
+            <div class="image">
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+
+    <div class="alert alert-danger" *ngIf="myErrorMsg">
+        {{myErrorMsg}}
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)" class="px-4">
+
+        <h1 class="text-center display-1 text-main">Login</h1>
+
+
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="text" matInput placeholder="Ex. exmaple@yahoo.com" />
+
+            <mat-error *ngIf="loginForm.get('email')?.getError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.getError('email')">
+                Email <strong> Not Valid </strong>
+            </mat-error>
+
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Enter your Password</mat-label>
+            <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide" type="button">
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.getError('pattern')">
+                Password be <strong> uppecase,lowercase and numbers </strong>
+            </mat-error>
+
+
+        </mat-form-field>
+
+
+
+        <button [disabled]="loginForm.invalid" mat-raised-button color="primary" class="w-100">
+            <i class="fa-solid fa-spinner fa-spin" *ngIf="isLoading"></i>
+
+            <span *ngIf="!isLoading">Login</span>
+        </button>
+
+
+
+
+    </form>
+
+
+<p class="text-center p-3">    Don't have an account? <span> <a class="text-capitalize text-main fw-bold" routerLink="/register"  routerLinkActive="">Sign up </a></span> </p>
+
+    </div>
+
+
+
+
+    </div>
+</section>
+
+
+
+
+
+
+<!-- 
+
+        Manmoonaa2000@gmail.com
+        Mona2000m
+       -->

@@ -1,0 +1,20 @@
+<div class="w-50 mx-auto my-5">
+
+<form [formGroup]="shippingAdress" (ngSubmit)="checkout(shippingAdress)">
+
+    <label for="details">Details</label>
+    <input type="text" name="details" id="" formControlName="details" class="form-control my-1">
+
+
+    
+    <label for="phone">Phone</label>
+    <input type="tel" name="phone" id="" formControlName="phone" class="form-control my-1">
+
+
+    
+    <label for="city">City</label>
+    <input type="text" name="city" id="" formControlName="city" class="form-control my-1">
+
+    <button class="btn bg-main text-white my-1" type="submit"> Pay Now! </button>
+</form>
+</div>
